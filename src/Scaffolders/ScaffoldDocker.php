@@ -78,7 +78,7 @@ class ScaffoldDocker extends Scaffolder
 
         $this->envInsert = implode([
             'TIMEZONE=Europe/Kiev',
-            'APP_CODE_PATH_HOST=../'.basename(getcwd()).'/',
+            'APP_CODE_PATH_HOST='.getcwd().'/',
             'APP_CODE_PATH_CONTAINER=/var/www:cached',
             'DATA_PATH_HOST=~/.afterflow/'.basename(getcwd()).'_data',
             'DOCKER_HOST_IP=10.0.75.1',
