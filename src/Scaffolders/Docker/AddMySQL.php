@@ -51,9 +51,9 @@ HERE;
         return '  '.$this->name.':'.PHP_EOL.'    driver: local'.PHP_EOL;
     }
 
-    public function afterHandle()
+    protected function afterHandle()
     {
-        $this->replaceInFile('.env', 'DB_HOST=127.0.0.1', 'DB_HOST=mysql');
+        $this->replaceInFile('./.env', 'DB_HOST=127.0.0.1', 'DB_HOST=mysql');
     }
 
 }

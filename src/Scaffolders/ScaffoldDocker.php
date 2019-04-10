@@ -8,6 +8,7 @@ use DevWorkout\ScaffoldDocker\Scaffolders\Docker\AddCaddy;
 use DevWorkout\ScaffoldDocker\Scaffolders\Docker\AddMySQL;
 use DevWorkout\ScaffoldDocker\Scaffolders\Docker\AddPhp;
 use DevWorkout\ScaffoldDocker\Scaffolders\Docker\AddPhpMyAdmin;
+use DevWorkout\ScaffoldDocker\Scaffolders\Docker\AddSelenium;
 use DevWorkout\ScaffoldDocker\Scaffolders\Docker\AddWorker;
 use DevWorkout\ScaffoldDocker\Scaffolders\Docker\AddWorkspace;
 use File;
@@ -50,6 +51,7 @@ class ScaffoldDocker extends Scaffolder
             AddMySQL::class,
             AddPhpMyAdmin::class,
             AddWorker::class,
+            AddSelenium::class,
         ]);
 
         foreach ($scafs as $s) {
@@ -60,7 +62,7 @@ class ScaffoldDocker extends Scaffolder
 
         $this->finish();
 
-        if ($this->command->confirm('Add docker-compose shortcuts?', true)) {
+        if ($this->command->confirm('Add docker-compose shortcuts?', false)) {
             file_put_contents('./up', 'sudo docker-compose up -d --build');
             file_put_contents('./down', 'sudo docker-compose down');
             file_put_contents('./w', 'sudo docker-compose exec --user=laradock workspace bash');

@@ -19,6 +19,7 @@ abstract class AddService extends Scaffolder
             'service' => $this->service(),
             'volume' => $this->volume(),
         ];
+
         $this->afterHandle();
         return $stuff;
     }
@@ -35,6 +36,6 @@ abstract class AddService extends Scaffolder
 
     protected function afterHandle()
     {
-        // Override
+        // Override this
     }
 }
