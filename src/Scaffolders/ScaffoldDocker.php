@@ -16,6 +16,8 @@ class ScaffoldDocker extends Scaffolder
 {
     use RunsScaffolders;
 
+    static $description = 'Scaffold Docker services to run Laravel';
+
     protected $env;
     protected $envInsert;
     protected $dockerComposeVolumes = 'volumes:'.PHP_EOL;

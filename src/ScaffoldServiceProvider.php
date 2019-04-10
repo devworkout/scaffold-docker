@@ -3,19 +3,27 @@
 namespace DevWorkout\ScaffoldDocker;
 
 use Afterflow\Framework\Console\Commands\ScaffoldCommand;
+use Afterflow\Framework\ScaffolderDiscovery;
 use DevWorkout\ScaffoldDocker\Scaffolders\MultiScaffolder;
 use DevWorkout\ScaffoldDocker\Scaffolders\ScaffoldDocker;
 use Illuminate\Support\ServiceProvider;
 
-class ScaffoldServiceProvider extends ServiceProvider
+class ScaffoldServiceProvider extends ServiceProvider implements ScaffolderDiscovery
 {
+
+    public static function scaffolders(): array
+    {
+        return [
+            ScaffoldDocker::class,
+        ];
+    }
+
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->app->tag(ScaffoldDocker::class, ['afterflow-scaffolder', 'devworkout/scaffold-docker']);
         }
     }
 
