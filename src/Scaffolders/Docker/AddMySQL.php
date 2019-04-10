@@ -48,6 +48,7 @@ HERE;
 
     public function volume()
     {
+        $this->replaceInFile('./.env', 'DB_HOST=127.0.0.1', 'DB_HOST=mysql');
         return '  '.$this->name.':'.PHP_EOL.'    driver: local'.PHP_EOL;
     }
 
