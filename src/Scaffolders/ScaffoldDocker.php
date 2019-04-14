@@ -81,7 +81,7 @@ class ScaffoldDocker extends Scaffolder
             'APP_CODE_PATH_HOST='.getcwd().'/',
             'APP_CODE_PATH_CONTAINER=/var/www:cached',
             'DATA_PATH_HOST=~/.afterflow/'.basename(getcwd()).'_data',
-            'DOCKER_HOST_IP=10.0.75.1',
+            'DOCKER_HOST_IP=172.17.0.1',
             'DOCKER_DIR=../'.basename(getcwd()).'/.docker',
         ], PHP_EOL);
     }
